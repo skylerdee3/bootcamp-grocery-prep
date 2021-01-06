@@ -28,10 +28,9 @@ const getRecipe = async (name) => {
 }
 
 const postRating = async (id, rating) => {
-    Recipe.findByIdAndUpdate(id, {
+    await Recipe.findByIdAndUpdate(id, {
         $push: {"ratings": rating}
     })
-    Recipe.save()
 }
 
 /*app.get('/api/recipe', async (req, res) => {
